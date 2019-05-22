@@ -11,8 +11,80 @@
 <body>
     
     <header>
-        
+        <div class="outerWrapper">
+            <div class="innerwrapper">
+                <h1>What's Playing?</h1> 
+                <h2>What's this about?</h2>  
+                <p>Can't decide what movie to watch tonight? Well our script isn't complete, help us complete our script and we'll recommend a movie based on your ideas!</p>
+            </div><!-- innerWrapper -->
+        </div><!-- outerWrapper -->
     </header>
+    <main>
+        <section class="outerWrapper firstSection">
+            <div class="innerWrapper">
+                <h2>Meet the protagonist...</h2>
+                <p>In a world, where there is only one...</p>
+                <form action="#">
+                    <label for="genre" class="visuallyHidden">Please pick the star of your movie</label>
+                    <select name="genre" id="genre">
+                        <option value="-1">Please pick the star of your movie</option>
+                        <option value="35">Goofball</option><!-- comedy -->
+                        <option value="28">Loose canon cop</option><!-- action -->
+                        <option value="18">Dreamer</option><!-- drama -->
+                        <option value="53">Suspect</option><!-- thriller -->
+                        <option value="878">Alien</option><!-- Sci Fi -->
+                    </select>
+                    <button class="firstQuestion">Click to continue writing your story</button>
+                </form>
+
+            </div><!-- innerWrapper -->
+        </section><!-- outerWrapper -->
+        <section class="outerWrapper secondSection" role="region" aria-live="polite">
+            <div class="innerWrapper">
+                <h2>Set the scene...</h2>
+                <p>up to the task, this <span></span>, living in...</p>
+                <form action="#">
+                    <label for="era" class="visuallyHidden">Please pick the era for your movie</label>
+                    <select name="era" id="era">
+                        <option value="-1">Please pick the era of your movie</option>
+                        <option value="#">The olden days</option><!-- before 1980 -->
+                        <option value="#">The neon 80's</option><!-- 1980's -->
+                        <option value="#">The grungy 90's</option><!-- 1990's -->
+                        <option value="53">A time not so long ago</option><!-- 2000-present -->
+                    </select>
+                    <button class="secondQuestion">Click to continue writing your story</button>
+                </form>      
+            </div><!-- innerWrapper -->
+        </section><!-- outerWrapper -->
+        <section class="outerWrapper thirdSection" role="region" aria-live="polite">
+            <div class="innerWrapper">
+                <h2>Pick the star...</h2>
+                <p>in order to save the day has to team up with...</p>
+                <form action="#">
+                    <label for="star" class="visuallyHidden">Please pick the star of your movie</label>
+                    <select name="star" id="star">
+                        <option value="-1">Please pick the star of your movie</option>
+                    </select>
+                    <button class="thirdQuestion">Click to get your movie!</button>
+                </form>
+            </div><!-- innerWrapper -->
+        </section><!-- outerWrapper -->
+        <section class="outerWrapper">
+            <div class="innerWrapper">
+                <div class="poster">
+
+                </div><!-- poster -->
+                <h2 class="movieName">
+
+                </h2><!-- movieName -->
+                <p class="description">
+
+                </p><!-- description -->
+                <button class="reset">Not happy with your movie? Play again!</button>
+            </div><!-- innerWrapper -->
+        </section><!-- outerWrapper -->
+
+    </main>
 
     <!-- jquery CDN link -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
