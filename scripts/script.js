@@ -40,11 +40,21 @@ app.eraMappings = {
 //     app.genreIDs = result;
 // } );
 
+app.bothQueries = function(moviePromise, actorPromise) {
+    $.when(moviePromise, actorPromise)
+    .then( (movieResult, actorResult) => {
+        console.log(movieResult, actorResult);
+    })
+    .fail( (movieError, actorError) =>{
+        alert(movieError, actorError);
+    } );
+}
+
 
 //query API for movies that match genre and era, first page only
 app.$movieQuery = function(genre, startDate, endDate) {
 
-    $.ajax({
+    return $.ajax({
         url: `https://api.themoviedb.org/3/discover/movie`,
         method: `GET`,
         dataType: `json`,
@@ -55,19 +65,39 @@ app.$movieQuery = function(genre, startDate, endDate) {
             'primary_release_date.gte': startDate,
             'primary_release_date.lte': endDate
         }
-    
     })
     .then ( (results) => {
-        const threeMovies = app.randomMovies(results)
-
+        const threeMovies = app.randomMovies(results);
         const threeMovieIDs = app.getMovieId(threeMovies);
+
+        app.$actorQuery(threeMovieIDs[0]);
+        app.$actorQuery(threeMovieIDs[1]);
+        app.$actorQuery(threeMovieIDs[2]);
+    
     })
-        .fail((error) => {
-            alert(error);
-        });
+    .fail((error) => {
+        alert(error);
+    });
 } 
     
-
+//AJAX call for actors
+app.$actorQuery = function(movie_id) {
+    return $.ajax({
+        url: `https://api.themoviedb.org/3/movie/${movie_id}/credits?`,
+        method: `GET`,
+        dataType: `json`,
+        data: {
+            api_key: app.apiKey
+        }
+    }).then((actorResults) => {
+        console.log(actorResults);
+        app.leadRole = actorResults.cast[0].name;
+        $(`#star`).append(`<option>${app.leadRole}</option>`);
+    })
+    .fail( (actorError) => {
+        alert(actorError);
+    } )
+}
 
 
 //get user's selection for genre category
@@ -85,14 +115,19 @@ $(`#era`).on(`change`, function(){
 
 $(`.firstQuestion`).on(`click`, function(event) {
     event.preventDefault();
-    app.genreSelected = $(`#genre`).val()
+    app.genreSelected = $(`#genre`).val();
 })
 
 $(`.secondQuestion`).on(`click`, function (event) {
     event.preventDefault();
-    app.eraSelected = $(`#era`).val()
+    app.eraSelected = $(`#era`).val();
     //making the AJAX call with the genre the user selected, the era the user selected and connecting the era to the AJAX keys for start and end date of the era
     app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
+    
+    // const movieProm = app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
+    // const actorProm = app.$actorQuery(app.selectedMovieIDs);
+
+    // app.bothQueries(movieProm, actorProm);
 
     // app.randomMovies();
     // console.log(app.movieResults);
@@ -100,8 +135,8 @@ $(`.secondQuestion`).on(`click`, function (event) {
 })
 
 $(`.thirdQuestion`).on(`click`, function (event) {
-    // event.preventDefault();
-    // app.randomMovies();
+    event.preventDefault();
+    
 })
 
 //write a function to select 3 random movies from app.movieResults
@@ -111,8 +146,8 @@ app.randomMovies = function(movies){
         const rand = Math.floor(Math.random() * 20);
         selectedMovies.push(movies.results[rand]);
     }
-    // console.log(selectedMovies);
-    return selectedMovies
+    console.log(selectedMovies);
+    return selectedMovies;
 
 }
 
@@ -122,8 +157,10 @@ app.getMovieId = function(movies){
     for (let i = 0; i < movies.length; i++) {
         selectedMovieIDs.push(movies[i].id);
     }
+    console.log(selectedMovieIDs);
     return selectedMovieIDs;
 }
+
 
 
 //parse out array of movie data for 5 random movies
