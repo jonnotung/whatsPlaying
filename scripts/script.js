@@ -9,20 +9,20 @@ app.apiKey = `23df60022b298f4d2aa0b8828774fb95`;
 
 app.eraMappings = {
     old: {
-        start: `1910`,
-        end: `1979`
+        start: 1910,
+        end: 1979
     },
     eighties: {
-        start: `1980`,
-        end: `1989`
+        start: 1980,
+        end: 1989
     },
     nineties: {
-        start: `1990`,
-        end: `1999`
+        start: 1990,
+        end: 1999
     },
     modern: {
-        start: `2000`,
-        end: `2019`
+        start: 2000,
+        end: 2019
     }
 };
 
@@ -42,23 +42,29 @@ app.eraMappings = {
 
 
 //query API for movies that match genre and era, first page only
-app.$movieQuery = function (genre, startDate, endDate){
+app.$movieQuery = function(genre, startDate, endDate) {
 
     $.ajax({
-        url: `https://api.themoviedb.org/3/discover/movie?${app.eraSearchString}`,
+        url: `https://api.themoviedb.org/3/discover/movie`,
         method: `GET`,
         dataType: `json`,
         data: {
             api_key: app.apiKey,
             language: `en-US`,
             with_genres: genre,
-            'release_date.gte': startDate,
-            'release_date.lte': endDate
+            'primary_release_date.gte': startDate,
+            'primary_release_date.lte': endDate
         }
     
-    }).then(function(results){
-        return results
     })
+    .then ( (results) => {
+        const threeMovies = app.randomMovies(results)
+
+        const threeMovieIDs = app.getMovieId(threeMovies);
+    })
+        .fail((error) => {
+            alert(error);
+        });
 } 
     
 
@@ -75,7 +81,49 @@ $(`#era`).on(`change`, function(){
     
 });
 
+//make event handler for submit buttons for genre and era
 
+$(`.firstQuestion`).on(`click`, function(event) {
+    event.preventDefault();
+    app.genreSelected = $(`#genre`).val()
+})
+
+$(`.secondQuestion`).on(`click`, function (event) {
+    event.preventDefault();
+    app.eraSelected = $(`#era`).val()
+    //making the AJAX call with the genre the user selected, the era the user selected and connecting the era to the AJAX keys for start and end date of the era
+    app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
+
+    // app.randomMovies();
+    // console.log(app.movieResults);
+    
+})
+
+$(`.thirdQuestion`).on(`click`, function (event) {
+    // event.preventDefault();
+    // app.randomMovies();
+})
+
+//write a function to select 3 random movies from app.movieResults
+app.randomMovies = function(movies){
+    let selectedMovies = [];
+    for (let i = 0; i < 3; i++){
+        const rand = Math.floor(Math.random() * 20);
+        selectedMovies.push(movies.results[rand]);
+    }
+    // console.log(selectedMovies);
+    return selectedMovies
+
+}
+
+//write a function to get the movie id's from the three random movies 
+app.getMovieId = function(movies){
+    const selectedMovieIDs = [];
+    for (let i = 0; i < movies.length; i++) {
+        selectedMovieIDs.push(movies[i].id);
+    }
+    return selectedMovieIDs;
+}
 
 
 //parse out array of movie data for 5 random movies
@@ -90,5 +138,4 @@ $(`#era`).on(`change`, function(){
 
 //Document ready check
 $(function () {
-    app.$movieQuery(app.genrePicked, app.eraMappings[app.eraPicked].start, app.eraMappings[app.eraPicked].end);
 })
