@@ -26,32 +26,10 @@ app.eraMappings = {
     }
 };
 
-//call AJAX to get genres
-// $.ajax({
-//     url: `https://api.themoviedb.org/3/genre/movie/list`,
-//     method: `GET`,
-//     dataType: `json`,
-//     data: {
-//         api_key: app.apiKey,
-//         language: `en-US`
-//     }
-// }).then( function(result){
-//     //save genre IDS in an array in namespace
-//     app.genreIDs = result;
-// } );
-
-app.bothQueries = function(moviePromise, actorPromise) {
-    $.when(moviePromise, actorPromise)
-    .then( (movieResult, actorResult) => {
-        console.log(movieResult, actorResult);
-    })
-    .fail( (movieError, actorError) =>{
-        alert(movieError, actorError);
-    } );
-}
 
 
 //query API for movies that match genre and era, first page only
+//First AJAX call we make
 app.$movieQuery = function(genre, startDate, endDate) {
 
     return $.ajax({
@@ -73,14 +51,15 @@ app.$movieQuery = function(genre, startDate, endDate) {
         app.$actorQuery(threeMovieIDs[0]);
         app.$actorQuery(threeMovieIDs[1]);
         app.$actorQuery(threeMovieIDs[2]);
-    
+        
     })
     .fail((error) => {
         alert(error);
     });
 } 
     
-//AJAX call for actors
+//AJAX call for actors - get movie cast using movie id
+//second AJAX call we make inside $movieQuery
 app.$actorQuery = function(movie_id) {
     return $.ajax({
         url: `https://api.themoviedb.org/3/movie/${movie_id}/credits?`,
@@ -92,7 +71,8 @@ app.$actorQuery = function(movie_id) {
     }).then((actorResults) => {
         console.log(actorResults);
         app.leadRole = actorResults.cast[0].name;
-        $(`#star`).append(`<option>${app.leadRole}</option>`);
+        $(`#star`).append(`<option value="${movie_id}">${app.leadRole}</option>`);
+
     })
     .fail( (actorError) => {
         alert(actorError);
@@ -123,20 +103,20 @@ $(`.secondQuestion`).on(`click`, function (event) {
     app.eraSelected = $(`#era`).val();
     //making the AJAX call with the genre the user selected, the era the user selected and connecting the era to the AJAX keys for start and end date of the era
     app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
-    
-    // const movieProm = app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
-    // const actorProm = app.$actorQuery(app.selectedMovieIDs);
 
-    // app.bothQueries(movieProm, actorProm);
-
-    // app.randomMovies();
-    // console.log(app.movieResults);
-    
 })
+
 
 $(`.thirdQuestion`).on(`click`, function (event) {
     event.preventDefault();
-    
+    app.actorSelected = $(`#star`).val();
+    // app.selectedID = $(`#star`).attr(`movieID`);
+    console.log(app.actorSelected);
+    // console.log(app.selectedID);
+    $(`.poster`).html(`poster test`);
+    $(`h2.movieName`).html('app.randomMovies');
+    $(`p.description`).html(`description test`);
+
 })
 
 //write a function to select 3 random movies from app.movieResults
