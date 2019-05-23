@@ -45,8 +45,8 @@ app.$movieQuery = function(genre, startDate, endDate) {
         }
     })
     .then ( (results) => {
-        const threeMovies = app.randomMovies(results);
-        const threeMovieIDs = app.getMovieId(threeMovies);
+        app.threeMovies = app.randomMovies(results);
+        const threeMovieIDs = app.getMovieId(app.threeMovies);
 
         app.$actorQuery(threeMovieIDs[0]);
         app.$actorQuery(threeMovieIDs[1]);
@@ -92,7 +92,6 @@ $(`#era`).on(`change`, function(){
 });
 
 //make event handler for submit buttons for genre and era
-
 $(`.firstQuestion`).on(`click`, function(event) {
     event.preventDefault();
     app.genreSelected = $(`#genre`).val();
@@ -109,15 +108,27 @@ $(`.secondQuestion`).on(`click`, function (event) {
 
 $(`.thirdQuestion`).on(`click`, function (event) {
     event.preventDefault();
-    app.actorSelected = $(`#star`).val();
-    // app.selectedID = $(`#star`).attr(`movieID`);
-    console.log(app.actorSelected);
-    // console.log(app.selectedID);
-    $(`.poster`).html(`poster test`);
-    $(`h2.movieName`).html('app.randomMovies');
-    $(`p.description`).html(`description test`);
+    app.movieSelectedID = $(`#star`).val();
+    console.log(app.movieSelectedID);
+    
+    app.threeMovies.forEach( function(movie) {
+        
+        console.log(movie.id);
+        console.log(typeof app.movieSelectedID);
 
+        if (parseInt(app.movieSelectedID) === movie.id) {
+            console.log('in here');
+            $(`.poster`).html(`poster test`);
+            $(`h2.movieName`).html(movie.original_title);
+            $(`p.description`).html(movie.overview);
+        }
+    })
+        
+
+    
 })
+
+
 
 //write a function to select 3 random movies from app.movieResults
 app.randomMovies = function(movies){
