@@ -118,7 +118,7 @@ $(`.thirdQuestion`).on(`click`, function (event) {
 
         if (parseInt(app.movieSelectedID) === movie.id) {
             console.log('in here');
-            $(`.poster`).html(`poster test`);
+            $(`.poster`).html(`<img src ="https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"></img>`);
             $(`h2.movieName`).html(movie.original_title);
             $(`p.description`).html(movie.overview);
         }
