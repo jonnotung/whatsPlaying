@@ -47,11 +47,10 @@ app.$movieQuery = function(genre, startDate, endDate) {
     .then ( (results) => {
         app.threeMovies = app.randomMovies(results);
         const threeMovieIDs = app.getMovieId(app.threeMovies);
-
-        app.$actorQuery(threeMovieIDs[0]);
-        app.$actorQuery(threeMovieIDs[1]);
-        app.$actorQuery(threeMovieIDs[2]);
-        
+        //for each movie ID find the lead actor 
+        threeMovieIDs.forEach( function (movieID){
+            app.$actorQuery(movieID);
+        })
     })
     .fail((error) => {
         alert(error);
@@ -95,6 +94,9 @@ $(`#era`).on(`change`, function(){
 $(`.firstQuestion`).on(`click`, function(event) {
     event.preventDefault();
     app.genreSelected = $(`#genre`).val();
+    app.genreSelectedName = $(`#genre option:selected`).text().toLowerCase();
+    $(`.taskName`).text(app.genreSelectedName);
+    console.log(app.genreSelectedName);
 })
 
 $(`.secondQuestion`).on(`click`, function (event) {
@@ -102,6 +104,9 @@ $(`.secondQuestion`).on(`click`, function (event) {
     app.eraSelected = $(`#era`).val();
     //making the AJAX call with the genre the user selected, the era the user selected and connecting the era to the AJAX keys for start and end date of the era
     app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
+    app.eraSelectedName = $(`#era option:selected`).text().toLowerCase();
+    console.log(app.eraSelectedName);
+    $(`.eraName`).text(app.eraSelectedName);
 
 })
 
@@ -110,6 +115,8 @@ $(`.thirdQuestion`).on(`click`, function (event) {
     event.preventDefault();
     app.movieSelectedID = $(`#star`).val();
     console.log(app.movieSelectedID);
+    app.starSelectedName = $(`#star option:selected`).text();
+    console.log(app.starSelectedName);
     
     app.threeMovies.forEach( function(movie) {
         
@@ -117,8 +124,8 @@ $(`.thirdQuestion`).on(`click`, function (event) {
         console.log(typeof app.movieSelectedID);
 
         if (parseInt(app.movieSelectedID) === movie.id) {
-            console.log('in here');
-            $(`.poster`).html(`<img src ="https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"></img>`);
+            $(`.fullScript`).html(`<p>In a world, where there is only one ${app.genreSelectedName} up to the task, this ${app.genreSelectedName}, living in ${app.eraSelectedName}, must save the day! In order to save the day the ${app.genreSelectedName} has to team up with ${app.starSelectedName}.</p>`);
+            $(`.poster`).html(`<img src ='https://image.tmdb.org/t/p/w500/${movie.poster_path}'></img>`);
             $(`h2.movieName`).html(movie.original_title);
             $(`p.description`).html(movie.overview);
         }
@@ -132,14 +139,20 @@ $(`.thirdQuestion`).on(`click`, function (event) {
 
 //write a function to select 3 random movies from app.movieResults
 app.randomMovies = function(movies){
-    let selectedMovies = [];
+    let movieSeen = new Set();
+    const selectedMovies = [];
     for (let i = 0; i < 3; i++){
-        const rand = Math.floor(Math.random() * 20);
+        let rand = Math.floor(Math.random() * movies.results.length);
+        while (movieSeen.has(rand)) {
+            rand = Math.floor(Math.random() * movies.results.length);
+        } 
+        movieSeen.add(rand);
         selectedMovies.push(movies.results[rand]);
-    }
+        console.log(movieSeen);
+    };
     console.log(selectedMovies);
     return selectedMovies;
-
+    
 }
 
 //write a function to get the movie id's from the three random movies 
@@ -152,18 +165,20 @@ app.getMovieId = function(movies){
     return selectedMovieIDs;
 }
 
+//event handler for reset button 
+app.resetButton = function (){
+    $(`.reset`).on(`click`, function (){
+        location.reload();
+    })
+}
 
-
-//parse out array of movie data for 5 random movies
-
-//map array of movie cast to picked movies
-
-//parse out lead actor
-
-//display lead actors for user to select
-
-//using selected genre, era and actor select a movie to display to user
+//initilization function
+app.init = function () {
+    app.resetButton();
+    $(`select`).prop(`-1`);
+} 
 
 //Document ready check
 $(function () {
+    app.init();
 })

@@ -26,7 +26,7 @@
                 <p>In a world, where there is only one...</p>
                 <form action="#">
                     <label for="genre" class="visuallyHidden">Please pick the star of your movie</label>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" autocomplete="off">
                         <option value="-1">Please pick the star of your movie</option>
                         <option value="35">Goofball</option><!-- comedy -->
                         <option value="28">Loose canon cop</option><!-- action -->
@@ -42,10 +42,10 @@
         <section class="outerWrapper secondSection" role="region" aria-live="polite">
             <div class="innerWrapper">
                 <h2>Set the scene...</h2>
-                <p>up to the task, this <span></span>, living in...</p>
+                <p>In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in...</p>
                 <form action="#">
                     <label for="era" class="visuallyHidden">Please pick the era for your movie</label>
-                    <select name="era" id="era">
+                    <select name="era" id="era" autocomplete="off">
                         <option value="-1">Please pick the era of your movie</option>
                         <option value="old">The olden days</option><!-- before 1980 -->
                         <option value="eighties">The neon 80's</option><!-- 1980's -->
@@ -59,7 +59,7 @@
         <section class="outerWrapper thirdSection" role="region" aria-live="polite">
             <div class="innerWrapper">
                 <h2>Pick the star...</h2>
-                <p>in order to save the day has to team up with...</p>
+                <p>In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
                 <form action="#">
                     <label for="star" class="visuallyHidden">Please pick the star of your movie</label>
                     <select name="star" id="star">
@@ -71,6 +71,11 @@
         </section><!-- outerWrapper -->
         <section class="outerWrapper">
             <div class="innerWrapper">
+                <h2>Your completed Script</h2>
+                <div class="fullScript">
+
+                </div><!-- fullScript -->
+                <h2>Our movie recommendation</h2>
                 <div class="poster">
 
                 </div><!-- poster -->
