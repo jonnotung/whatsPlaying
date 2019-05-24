@@ -125,7 +125,7 @@ $(`.thirdQuestion`).on(`click`, function (event) {
 
         if (parseInt(app.movieSelectedID) === movie.id) {
             $(`.fullScript`).html(`<p>In a world, where there is only one ${app.genreSelectedName} up to the task, this ${app.genreSelectedName}, living in ${app.eraSelectedName}, must save the day! In order to save the day the ${app.genreSelectedName} has to team up with ${app.starSelectedName}.</p>`);
-            $(`.poster`).html(`<img src ='https://image.tmdb.org/t/p/w500/${movie.poster_path}'></img>`);
+            $(`.poster`).html(`<img src ='https://image.tmdb.org/t/p/w320/${movie.poster_path}'></img>`);
             $(`h2.movieName`).html(movie.original_title);
             $(`p.description`).html(movie.overview);
         }

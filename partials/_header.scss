@@ -1,0 +1,42 @@
+//------------------------------------------------------------------------
+//----text stylings copied from ThibaultJanBeyer on speckyboy.com---------
+//------------------------------------------------------------------------
+
+.marquee {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    line-height: 1;
+    // position: relative;
+    text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush, -4px -4px $accentPlush, -5px -5px $accentPlush);
+    padding: 150px 0 100px 0;
+}
+
+
+
+.startContainer {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    height: 100%;
+}
+
+.start {
+    margin: 100px 0;
+}
+
+// .h1Top {
+//     color: $text;
+//     position: absolute;
+//     z-index: 1;   
+// }
+
+// .h1Container {
+//     display: inline-block;
+//     margin: 25px auto;
+//     text-align: center;
+// }
+
+
+
+
+

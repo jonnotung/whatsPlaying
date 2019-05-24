@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- google fonts link -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald%7CSix+Caps&display=swap" rel="stylesheet">
     <!-- link to our CSS styles -->
     <link rel="stylesheet" href="./styles/styles.css">
     <title>What's Playing?</title>
@@ -13,16 +15,24 @@
     <header>
         <div class="outerWrapper">
             <div class="innerwrapper">
-                <h1>What's Playing?</h1> 
-                <h2>What's this about?</h2>  
+
+                <div class="h1Container">
+                    <h1 class="h1Top marquee">What's Playing?</h1>
+                    <!-- <h1 clas="h1Bottom h1 marquee">What's Playing?</h1> -->
+                </div>
+               
                 <p>Can't decide what movie to watch tonight? Well our script isn't complete, help us complete our script and we'll recommend a movie based on your ideas!</p>
+                <div class="startContainer">
+                    <button class="start">Click to play!</button>
+                </div>
+                
             </div><!-- innerWrapper -->
         </div><!-- outerWrapper -->
     </header>
     <main>
         <section class="outerWrapper firstSection">
             <div class="innerWrapper">
-                <h2>Meet the protagonist...</h2>
+                <h2>Meet the protagonist</h2>
                 <p>In a world, where there is only one...</p>
                 <form action="#">
                     <label for="genre" class="visuallyHidden">Please pick the star of your movie</label>
@@ -34,15 +44,19 @@
                         <option value="53">Suspect</option><!-- thriller -->
                         <option value="878">Alien</option><!-- Sci Fi -->
                     </select>
-                    <button class="firstQuestion">Click to continue writing your story</button>
+                    <p>Click to continue writing your story</p>
+                    <div class="startContainer">
+                        <button class="firstQuestion">Continue</button>
+                    </div>
+                    
                 </form>
 
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
         <section class="outerWrapper secondSection" role="region" aria-live="polite">
             <div class="innerWrapper">
-                <h2>Set the scene...</h2>
-                <p>In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in...</p>
+                <h2>Set the scene</h2>
+                <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in...</p>
                 <form action="#">
                     <label for="era" class="visuallyHidden">Please pick the era for your movie</label>
                     <select name="era" id="era" autocomplete="off">
@@ -52,40 +66,51 @@
                         <option value="nineties">The grungy 90's</option><!-- 1990's -->
                         <option value="modern">A time not so long ago</option><!-- 2000-present -->
                     </select>
-                    <button class="secondQuestion">Click to continue writing your story</button>
+                    <p>Click to continue writing your story</p>
+                    <div class="startContainer">
+                        <button class="secondQuestion">Continue</button>
+                    </div>
                 </form>      
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
         <section class="outerWrapper thirdSection" role="region" aria-live="polite">
             <div class="innerWrapper">
-                <h2>Pick the star...</h2>
-                <p>In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
+                <h2>Pick the star</h2>
+                <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
                 <form action="#">
                     <label for="star" class="visuallyHidden">Please pick the star of your movie</label>
                     <select name="star" id="star">
                         <option value="-1">Please pick the star of your movie</option>
                     </select>
-                    <button class="thirdQuestion">Click to get your movie!</button>
+                    <p>Click to get your movie!</p>
+                    <div class="startContainer">
+                        <button class="thirdQuestion">Finish!</button>
+                    </div>
                 </form>
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper">
+        <section class="outerWrapper results">
             <div class="innerWrapper">
-                <h2>Your completed Script</h2>
-                <div class="fullScript">
+                <div class="dynamicResults">
+                    <h2>Your completed Script</h2>
+                    <div class="fullScript" role="region" aria-live="polite">
 
-                </div><!-- fullScript -->
-                <h2>Our movie recommendation</h2>
-                <div class="poster">
+                    </div><!-- fullScript -->
+                    <h2>Our movie recommendation</h2>
+                    <div class="poster">
 
-                </div><!-- poster -->
-                <h2 class="movieName">
+                    </div><!-- poster -->
+                    <h2 class="movieName">
 
-                </h2><!-- movieName -->
-                <p class="description">
+                    </h2><!-- movieName -->
+                    <p class="description">
 
-                </p><!-- description -->
-                <button class="reset">Not happy with your movie? Play again!</button>
+                    </p><!-- description -->
+                    <p class="playAgain">Not happy with your movie?</p>
+                    <div class="startContainer">
+                        <button class="reset">Play again!</button>
+                    </div>
+                </div> <!-- dynamicResults -->
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
 

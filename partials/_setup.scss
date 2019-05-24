@@ -13,3 +13,99 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 //----------------------------------
 //------Common wrapper styles-------
 //----------------------------------
+html {
+    font-size: 125%;
+}
+
+.outerWrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 90%;
+    
+}
+
+.innerWrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header,
+main,
+.results {
+    background: $background;
+}
+
+header, 
+section.firstSection, 
+section.secondSection,
+section.thirdSection {
+    height: 100vh;
+}
+
+//----------------------------------
+//------common typography styles----
+//----------------------------------
+
+h1, h2 {
+    font-family: $headerText;
+    color: $text;
+    margin: 0;
+    text-align: center;
+} 
+
+h2 {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush);
+    
+}
+
+p {
+    font-family: $pageText;
+    color: $text;
+    margin: 0;
+    font-size: 1.3rem;
+
+}
+
+.firstSection p,
+.secondSection p,
+.thirdSection p,
+.results p  {
+    text-align: center;
+    padding: 50px 0;
+}
+
+//--------------------------
+//-----common button styles--
+//---------------------------
+
+button {
+    border-radius: 15px;
+    padding: 10px;
+    background: $accentPlush;
+    color: $text;
+    font-family: $pageText;
+    text-transform: uppercase;
+    font-size: 2rem;
+    transition: 0.4s;
+    border: none;
+    box-shadow: 5px 5px  $text; 
+    font-family: $headerText;
+    letter-spacing: 10px;
+}
+
+.firstSection button,
+.secondSection button,
+.thirdSection button {
+    margin-top: 40px;
+}
+
+button:hover {
+    background-color: lighten($accentPlush, 15%);
+}
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 1px 1px  $text; 
+}

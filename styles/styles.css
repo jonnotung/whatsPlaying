@@ -178,4 +178,124 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   clip: rect(0 0 0);
   overflow: hidden;
 }
+
+html {
+  font-size: 125%;
+}
+
+.outerWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.innerWrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header,
+main,
+.results {
+  background: #404040;
+}
+
+header,
+section.firstSection,
+section.secondSection,
+section.thirdSection {
+  height: 100vh;
+}
+
+h1, h2 {
+  font-family: "Six Caps", sans-serif;
+  color: #e9ceac;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  letter-spacing: 10px;
+  text-shadow: -1px -1px #6c1c17, -2px -2px #6c1c17, -3px -3px #6c1c17;
+}
+
+p {
+  font-family: "Oswald", sans-serif;
+  color: #e9ceac;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.firstSection p,
+.secondSection p,
+.thirdSection p,
+.results p {
+  text-align: center;
+  padding: 50px 0;
+}
+
+button {
+  border-radius: 15px;
+  padding: 10px;
+  background: #6c1c17;
+  color: #e9ceac;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+  -webkit-box-shadow: 5px 5px #e9ceac;
+          box-shadow: 5px 5px #e9ceac;
+  font-family: "Six Caps", sans-serif;
+  letter-spacing: 10px;
+}
+
+.firstSection button,
+.secondSection button,
+.thirdSection button {
+  margin-top: 40px;
+}
+
+button:hover {
+  background-color: #ab2c24;
+}
+
+button:active {
+  -webkit-transform: translate(4px, 4px);
+          transform: translate(4px, 4px);
+  -webkit-box-shadow: 1px 1px #e9ceac;
+          box-shadow: 1px 1px #e9ceac;
+}
+
+.marquee {
+  font-size: 3rem;
+  letter-spacing: 10px;
+  line-height: 1;
+  text-shadow: -1px -1px #6c1c17, -2px -2px #6c1c17, -3px -3px #6c1c17, -4px -4px #6c1c17, -5px -5px #6c1c17;
+  padding: 150px 0 100px 0;
+}
+
+.startContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.start {
+  margin: 100px 0;
+}
+
+.dynamicResults {
+  background: #404040;
+}
+
+.playAgain {
+  text-shadow: -1px -1px #6c1c17, -2px -2px #6c1c17;
+}
 /*# sourceMappingURL=styles.css.map */
