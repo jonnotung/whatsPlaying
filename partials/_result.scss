@@ -14,10 +14,52 @@
 
 .results h2 {
     font-size: 2rem;
-    padding-bottom: 10px;
+    padding: 10px 0;
+
 }
 
 .poster img {
     display: block;
     width: 100%;
+}
+
+@media (min-width: 490px) {
+    .results h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 750px) {
+    .infoContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 0;
+    }
+
+    .poster {
+        width: 40%;
+    }
+
+    .movieText {
+        width: 55%;
+    }
+
+    .results h2 {
+        font-size: 5rem;
+    }
+
+    .movieText h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .movieText h2 {
+        font-size: 3.5rem;
+    }
+
+    .movieText p {
+        font-size: 1.5rem;
+    }
 }

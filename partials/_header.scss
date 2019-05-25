@@ -2,16 +2,24 @@
 //----text stylings copied from ThibaultJanBeyer on speckyboy.com---------
 //------------------------------------------------------------------------
 header {
-    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
-      text-align: center;
-      height: 90vh;
-      border: 5px solid $background;
-      margin: 25px 15px;
+    background:  url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+    text-align: center;
+    height: 90vh;
+    border: 5px solid $background;
+    margin: 25px 15px;
+}
+
+header .outerWrapper {
+  // background: $text;
+}
+
+.cameraIcon {
+  display: none;
 }
 
  header::after {
   content: "";
-  height: 100%;
+  height: 100vh; 
   width: 100%;
   background-color: $text;
   position: absolute;
@@ -20,16 +28,16 @@ header {
   left: 0;
 }
 
-header::before {
-content: "";
-  height: 5px;
-  width: 96%;
-  background-color: $background;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 2%;
-}
+// header::before {
+// content: "";
+//   height: 5px;
+//   width: 95vw;
+//   background-color: $background;
+//   position: absolute;
+//   z-index: 1;
+//   top: 10px;
+//   left: 2%;
+// }
 
 .h1container,
   .h1container2 {
@@ -38,27 +46,27 @@ content: "";
   height: 90vh;
   }
 
-  .h1container::before {
-  content: "";
-  height: 100%;
-  width: 5px;
-  background-color: $background;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 1%;
-}
+//   .h1container::before {
+//   content: "";
+//   height: 100vh;
+//   width: 5px;
+//   background-color: $background;
+//   position: absolute;
+//   z-index: 1;
+//   top: 10px;
+//   left: 1%;
+// }
 
-.h1container::after {
-  content: "";
-  height: 100%;
-  width: 5px;
-  background-color: $background;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  right: 1%;
-}
+// .h1container::after {
+//   content: "";
+//   height: 100vh;
+//   width: 5px;
+//   background-color: $background;
+//   position: absolute;
+//   z-index: 1;
+//   top: 10px;
+//   right: 1%;
+// }
 
 .intro {
   font-size: 1.8rem;
@@ -119,32 +127,88 @@ header p {
 
 header button {
   font-size: 1rem;
-  margin-top: 30px;
-  position: relative;
-  top: 8%;
-  transform: translateY(-50%);
+  margin-top: 50px;
+ 
 }
 
 @media (min-width: 340px) {
     .start {
-        margin: 100px 0;
+        margin: 5vh 0;
     }
 
     header p {
       margin-top: 40px;
     }
 
-    header button {
-      top: 10%;
-    }
 }
     
-}
+
 
 @media (min-width: 355px) {
   header button {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+
+  .start {
+      margin: 15vh 0;
+  }
 }
+
+@media (min-width: 490px) {
+  h1.intro {
+    font-size: 3rem;
+  }
+
+  header p {
+    margin-top: 20vh;
+  }
+}
+
+@media (min-width: 600px) {
+  h1.intro {
+    font-size: 4.5rem;
+  }
+
+  header button {
+    font-size: 2rem;
+  }
+
+  header {
+    margin: 40px auto;
+    width: 90%;
+  }
+}
+
+@media (min-width: 800px) {
+  h1.intro {
+    margin-top: 100px;
+  }
+
+  .start {
+      margin: 5vh 0;
+  }
+
+  header p {
+    margin-top: 12vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  h1.intro {
+    font-size: 7rem;
+  }
+
+  .start {
+    margin: 2.5vh;
+  }
+
+}
+
+@media (min-width: 3000px) {
+    h1.intro {
+        font-size: 10rem;
+    }
 }
 
 

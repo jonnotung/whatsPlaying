@@ -10,6 +10,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+
+
 //----------------------------------
 //------Common wrapper styles-------
 //----------------------------------
@@ -47,6 +49,16 @@ section.thirdSection {
     padding: 10px 0;
 }
 
+.firstSection .innerWrapper,
+.secondSection .innerWrapper,
+.thirdSection .innerWrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 //----------------------------------
 //------common typography styles----
 //----------------------------------
@@ -70,7 +82,6 @@ p {
     color: $text;
     margin: 0;
     font-size: 1.3rem;
-
 }
 
 .firstSection p,
@@ -92,6 +103,10 @@ p {
     height: 100%;
 }
 
+.thirdSection .startContainer {
+    height: auto;
+}
+
 button {
     border-radius: 15px;
     padding: 10px;
@@ -106,6 +121,7 @@ button {
     font-family: $headerText;
     letter-spacing: 10px;
 }
+ 
 
 .firstSection button,
 .secondSection button,
@@ -126,6 +142,10 @@ button:active {
     box-shadow: 1px 1px  $text; 
 }
 
+main {
+    padding-bottom: 30px;
+}
+
 //--------------------------
 //-----common drop down styles--
 //---------------------------
@@ -144,8 +164,100 @@ select {
 
 @media (min-width: 390px) {
     section.thirdSection
- {
-    height: 100vh;
-    padding: 10px 0;
+    {
+        height: 100vh;
+        padding: 10px 0;
+    }
 }
+
+@media (min-width: 490px) {
+    .firstSection .innerWrapper,
+    .secondSection .innerWrapper,
+    .thirdSection .innerWrapper {
+        justify-content: center;
+    }
+
+    .firstSection h2,
+    .secondSection h2,
+    .thirdSection h2 {
+        margin-top: 5vh;
+    }
+
+    .startContainer {
+        height: auto;
+    }
+
+    .starP {
+        margin-bottom: 30px;
+    }
+}
+
+@media  (min-width: 600px) {
+    .firstSection h2,
+    .secondSection h2,
+    .thirdSection h2 {
+        font-size: 3.5rem;
+    }
+
+    .firstSection .innerWrapper,
+    .secondSection .innerWrapper,
+    .thirdSection .innerWrapper {
+        justify-content: space-around;
+    }
+
+    select {
+        text-align: center;
+    }
+}
+
+@media (min-width: 750px) {
+    .firstSection h2,
+    .secondSection h2,
+    .thirdSection h2 {
+        font-size: 5rem;
+    }
+
+    main {
+        background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+    }
+ 
+    .firstSection.outerWrapper,
+    .secondSection.outerWrapper,
+    .thirdSection.outerWrapper {
+        background: $background;
+    }
+}
+
+@media (min-width: 800px) {
+    p {
+        font-size: 1.7rem;
+    }
+
+    .movieText p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .firstSection h2,
+    .secondSection h2,
+    .thirdSection h2 {
+        font-size: 6rem;
+    }
+
+    select {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 3000px) {
+    .firstSection h2,
+    .secondSection h2,
+    .thirdSection h2 {
+        font-size: 9rem;
+    }
 }

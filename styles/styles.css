@@ -211,6 +211,25 @@ section.thirdSection {
   padding: 10px 0;
 }
 
+.firstSection .innerWrapper,
+.secondSection .innerWrapper,
+.thirdSection .innerWrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 h1, h2 {
   font-family: "Six Caps", sans-serif;
   color: #e9ceac;
@@ -252,6 +271,10 @@ p {
   height: 100%;
 }
 
+.thirdSection .startContainer {
+  height: auto;
+}
+
 button {
   border-radius: 15px;
   padding: 10px;
@@ -290,6 +313,10 @@ button:active {
           box-shadow: 1px 1px #e9ceac;
 }
 
+main {
+  padding-bottom: 30px;
+}
+
 form {
   width: 100%;
 }
@@ -309,6 +336,91 @@ select {
   }
 }
 
+@media (min-width: 490px) {
+  .firstSection .innerWrapper,
+  .secondSection .innerWrapper,
+  .thirdSection .innerWrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .firstSection h2,
+  .secondSection h2,
+  .thirdSection h2 {
+    margin-top: 5vh;
+  }
+  .startContainer {
+    height: auto;
+  }
+  .starP {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 600px) {
+  .firstSection h2,
+  .secondSection h2,
+  .thirdSection h2 {
+    font-size: 3.5rem;
+  }
+  .firstSection .innerWrapper,
+  .secondSection .innerWrapper,
+  .thirdSection .innerWrapper {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  select {
+    text-align: center;
+  }
+}
+
+@media (min-width: 750px) {
+  .firstSection h2,
+  .secondSection h2,
+  .thirdSection h2 {
+    font-size: 5rem;
+  }
+  main {
+    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+  }
+  .firstSection.outerWrapper,
+  .secondSection.outerWrapper,
+  .thirdSection.outerWrapper {
+    background: #404040;
+  }
+}
+
+@media (min-width: 800px) {
+  p {
+    font-size: 1.7rem;
+  }
+  .movieText p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .firstSection h2,
+  .secondSection h2,
+  .thirdSection h2 {
+    font-size: 6rem;
+  }
+  select {
+    font-size: 1.5rem;
+  }
+  button {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 3000px) {
+  .firstSection h2,
+  .secondSection h2,
+  .thirdSection h2 {
+    font-size: 9rem;
+  }
+}
+
 header {
   background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
   text-align: center;
@@ -317,9 +429,13 @@ header {
   margin: 25px 15px;
 }
 
+.cameraIcon {
+  display: none;
+}
+
 header::after {
   content: "";
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: #e9ceac;
   position: absolute;
@@ -328,44 +444,11 @@ header::after {
   left: 0;
 }
 
-header::before {
-  content: "";
-  height: 5px;
-  width: 96%;
-  background-color: #404040;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 2%;
-}
-
 .h1container,
 .h1container2 {
   display: inline-block;
   margin: 15px auto 40px;
   height: 90vh;
-}
-
-.h1container::before {
-  content: "";
-  height: 100%;
-  width: 5px;
-  background-color: #404040;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 1%;
-}
-
-.h1container::after {
-  content: "";
-  height: 100%;
-  width: 5px;
-  background-color: #404040;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  right: 1%;
 }
 
 .intro {
@@ -383,28 +466,74 @@ header p {
 
 header button {
   font-size: 1rem;
-  margin-top: 30px;
-  position: relative;
-  top: 8%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  margin-top: 50px;
 }
 
 @media (min-width: 340px) {
   .start {
-    margin: 100px 0;
+    margin: 5vh 0;
   }
   header p {
     margin-top: 40px;
-  }
-  header p header button {
-    top: 10%;
   }
 }
 
 @media (min-width: 355px) {
   header button {
     font-size: 1.5rem;
+    margin-top: 30px;
+  }
+  .start {
+    margin: 15vh 0;
+  }
+}
+
+@media (min-width: 490px) {
+  h1.intro {
+    font-size: 3rem;
+  }
+  header p {
+    margin-top: 20vh;
+  }
+}
+
+@media (min-width: 600px) {
+  h1.intro {
+    font-size: 4.5rem;
+  }
+  header button {
+    font-size: 2rem;
+  }
+  header {
+    margin: 40px auto;
+    width: 90%;
+  }
+}
+
+@media (min-width: 800px) {
+  h1.intro {
+    margin-top: 100px;
+  }
+  .start {
+    margin: 5vh 0;
+  }
+  header p {
+    margin-top: 12vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  h1.intro {
+    font-size: 7rem;
+  }
+  .start {
+    margin: 2.5vh;
+  }
+}
+
+@media (min-width: 3000px) {
+  h1.intro {
+    font-size: 10rem;
   }
 }
 
@@ -421,11 +550,53 @@ header button {
 
 .results h2 {
   font-size: 2rem;
-  padding-bottom: 10px;
+  padding: 10px 0;
 }
 
 .poster img {
   display: block;
   width: 100%;
+}
+
+@media (min-width: 490px) {
+  .results h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 750px) {
+  .infoContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 40px 0;
+  }
+  .poster {
+    width: 40%;
+  }
+  .movieText {
+    width: 55%;
+  }
+  .results h2 {
+    font-size: 5rem;
+  }
+  .movieText h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .movieText h2 {
+    font-size: 3.5rem;
+  }
+  .movieText p {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
