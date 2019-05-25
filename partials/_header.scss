@@ -1,40 +1,143 @@
 //------------------------------------------------------------------------
 //----text stylings copied from ThibaultJanBeyer on speckyboy.com---------
 //------------------------------------------------------------------------
-
-.marquee {
-    font-size: 3rem;
-    letter-spacing: 10px;
-    line-height: 1;
-    // position: relative;
-    text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush, -4px -4px $accentPlush, -5px -5px $accentPlush);
-    padding: 150px 0 100px 0;
+header {
+    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+      text-align: center;
+      height: 90vh;
+      border: 5px solid $background;
+      margin: 25px 15px;
 }
 
-
-
-.startContainer {
-    display: flex;
-    justify-content: center;
-    // align-items: center;
-    height: 100%;
+ header::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: $text;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 
-.start {
-    margin: 100px 0;
+header::before {
+content: "";
+  height: 5px;
+  width: 96%;
+  background-color: $background;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 2%;
 }
 
-// .h1Top {
-//     color: $text;
-//     position: absolute;
-//     z-index: 1;   
+.h1container,
+  .h1container2 {
+  display: inline-block;
+  margin: 15px auto 40px;
+  height: 90vh;
+  }
+
+  .h1container::before {
+  content: "";
+  height: 100%;
+  width: 5px;
+  background-color: $background;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 1%;
+}
+
+.h1container::after {
+  content: "";
+  height: 100%;
+  width: 5px;
+  background-color: $background;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 1%;
+}
+
+.intro {
+  font-size: 1.8rem;
+  letter-spacing: 10px;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  text-shadow: 
+    2px 1px rgb(85, 10, 0),
+    4px 2px rgb(90, 15, 5),
+    6px 4px rgb(100, 20, 15),
+    8px 5px rgb(105, 25, 20),
+    10px 6px rgb(110, 30, 25),
+    12px 7px rgb(115, 30, 30),
+    14px 8px rgb(120, 30, 35),
+    16px 9px black,
+    18px 10px black,
+    20px 11px black,
+    22px 12px black,
+    24px 13px black,
+    28px 14px rgba(0, 0, 0, 0.9),
+    30px 15px rgba(0, 0, 0, 0.7),
+    32px 16px rgba(0, 0, 0, 0.5),
+    34px 17px rgba(0, 0, 0, 0.3),
+    36px 18px rgba(0, 0, 0, 0.1),
+    40px 20px rgba(0, 0, 0, 0.1);
+}
+
+// .h1container2::before {
+//   content: "";
+//   height: 30px;
+//   width: 5px;
+//   background-color: black;
+//   position: absolute;
+//   z-index: 1;
+//   bottom: 2%;
+//   left: 3%;
+//   transform: rotate(25deg);
 // }
 
-// .h1Container {
-//     display: inline-block;
-//     margin: 25px auto;
-//     text-align: center;
+// .h1container2::after {
+//   content: "";
+//   height: 30px;
+//   width: 5px;
+//   background-color: black;
+//   position: absolute;
+//   z-index: 1;
+//   bottom: 2%;
+//   right: 3%;
+//   transform: rotate(335deg);
 // }
+
+
+
+header p {
+    margin-top: 40px;
+}
+
+header button {
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+@media (min-width: 340px) {
+    .start {
+        margin: 100px 0;
+    }
+
+    header p {
+    margin-top: 40px;
+}
+    
+}
+
+@media (min-width: 355px) {
+  header button {
+  font-size: 1.5rem;
+}
+}
 
 
 

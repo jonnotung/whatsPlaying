@@ -37,9 +37,14 @@ main,
 
 header, 
 section.firstSection, 
-section.secondSection,
-section.thirdSection {
+section.secondSection
+ {
     height: 100vh;
+    padding: 10px 0;
+}
+
+section.thirdSection {
+    padding: 10px 0;
 }
 
 //----------------------------------
@@ -54,8 +59,8 @@ h1, h2 {
 } 
 
 h2 {
-    font-size: 3rem;
-    letter-spacing: 10px;
+    font-size: 2.75rem;
+    letter-spacing: 7.5px;
     text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush);
     
 }
@@ -73,12 +78,19 @@ p {
 .thirdSection p,
 .results p  {
     text-align: center;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 //--------------------------
 //-----common button styles--
 //---------------------------
+
+.startContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
 button {
     border-radius: 15px;
@@ -98,7 +110,11 @@ button {
 .firstSection button,
 .secondSection button,
 .thirdSection button {
-    margin-top: 40px;
+    margin-top: 10px;
+}
+
+section.thirdSection {
+    padding-bottom: 25px;
 }
 
 button:hover {
@@ -108,4 +124,28 @@ button:hover {
 button:active {
     transform: translate(4px, 4px);
     box-shadow: 1px 1px  $text; 
+}
+
+//--------------------------
+//-----common drop down styles--
+//---------------------------
+
+form {
+    width: 100%;
+}
+
+select {
+    font-size: .9rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    word-wrap: normal;
+}
+
+@media (min-width: 390px) {
+    section.thirdSection
+ {
+    height: 100vh;
+    padding: 10px 0;
+}
 }

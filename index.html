@@ -16,15 +16,15 @@
         <div class="outerWrapper">
             <div class="innerwrapper">
 
-                <div class="h1Container">
-                    <h1 class="h1Top marquee">What's Playing?</h1>
-                    <!-- <h1 clas="h1Bottom h1 marquee">What's Playing?</h1> -->
-                </div>
+                <div class="h1container">
+                    <div class="h1container2">
+                        <h1 class="intro">What's playing?</h1>
+                        <p>Can't decide what movie to watch tonight? Well our script isn't complete, help us complete our script and we'll recommend a movie based on your ideas!</p>
+                        <button class="start">Click to play!</button>
+                    </div><!-- h1container -->
+                </div><!-- h1container2 -->
+
                
-                <p>Can't decide what movie to watch tonight? Well our script isn't complete, help us complete our script and we'll recommend a movie based on your ideas!</p>
-                <div class="startContainer">
-                    <button class="start">Click to play!</button>
-                </div>
                 
             </div><!-- innerWrapper -->
         </div><!-- outerWrapper -->
@@ -37,7 +37,7 @@
                 <form action="#">
                     <label for="genre" class="visuallyHidden">Please pick the star of your movie</label>
                     <select name="genre" id="genre" autocomplete="off">
-                        <option value="-1">Please pick the star of your movie</option>
+                        <option value="-1">Please pick the lead</option>
                         <option value="35">Goofball</option><!-- comedy -->
                         <option value="28">Loose canon cop</option><!-- action -->
                         <option value="18">Dreamer</option><!-- drama -->
@@ -58,15 +58,15 @@
                 <h2>Set the scene</h2>
                 <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in...</p>
                 <form action="#">
-                    <label for="era" class="visuallyHidden">Please pick the era for your movie</label>
+                    <label for="era" class="visuallyHidden">Please pick the era</label>
                     <select name="era" id="era" autocomplete="off">
-                        <option value="-1">Please pick the era of your movie</option>
+                        <option value="-1">Please pick the era</option>
                         <option value="old">The olden days</option><!-- before 1980 -->
                         <option value="eighties">The neon 80's</option><!-- 1980's -->
                         <option value="nineties">The grungy 90's</option><!-- 1990's -->
                         <option value="modern">A time not so long ago</option><!-- 2000-present -->
                     </select>
-                    <p>Click to continue writing your story</p>
+                    <p class="eraContinueText">Click to continue writing your story</p>
                     <div class="startContainer">
                         <button class="secondQuestion">Continue</button>
                     </div>
@@ -78,9 +78,9 @@
                 <h2>Pick the star</h2>
                 <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
                 <form action="#">
-                    <label for="star" class="visuallyHidden">Please pick the star of your movie</label>
+                    <label for="star" class="visuallyHidden">Please pick the star</label>
                     <select name="star" id="star">
-                        <option value="-1">Please pick the star of your movie</option>
+                        <option value="-1">Please pick the star</option>
                     </select>
                     <p>Click to get your movie!</p>
                     <div class="startContainer">
@@ -94,18 +94,17 @@
                 <div class="dynamicResults">
                     <h2>Your completed Script</h2>
                     <div class="fullScript" role="region" aria-live="polite">
-
+                        <p>In a world, where there is only one loose canon cop up to the task, this loose canon cop, living in the
+                            neon 80's, must save the day! In order to save the day the loose canon cop has to team up with N!xau.
+                        </p>
                     </div><!-- fullScript -->
                     <h2>Our movie recommendation</h2>
-                    <div class="poster">
-
-                    </div><!-- poster -->
-                    <h2 class="movieName">
-
-                    </h2><!-- movieName -->
-                    <p class="description">
-
-                    </p><!-- description -->
+                    <div class="poster"><img src="https://image.tmdb.org/t/p/w342//yvD2BWOEM5N4S4f6Yj8IVVjoKQO.jpg"></div>
+                    <!-- poster -->
+                    <h2 class="movieName">The Gods Must Be Crazy</h2><!-- movieName -->
+                    <p class="description">Misery is brought to a small group of Sho in the Kalahari desert in the form of a cola
+                        bottle. In his quest to throw the evil object over the edge of the earth, Xixo encounters Western
+                        "civilization," a haphazard doctor and a tyranical despot.</p><!-- description -->
                     <p class="playAgain">Not happy with your movie?</p>
                     <div class="startContainer">
                         <button class="reset">Play again!</button>
