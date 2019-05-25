@@ -120,6 +120,9 @@ header p {
 header button {
   font-size: 1rem;
   margin-top: 30px;
+  position: relative;
+  top: 8%;
+  transform: translateY(-50%);
 }
 
 @media (min-width: 340px) {
@@ -128,7 +131,12 @@ header button {
     }
 
     header p {
-    margin-top: 40px;
+      margin-top: 40px;
+    }
+
+    header button {
+      top: 10%;
+    }
 }
     
 }
