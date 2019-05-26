@@ -5,6 +5,9 @@ app = {};
 
 app.apiKey = `23df60022b298f4d2aa0b8828774fb95`;
 
+//saves the selector for page scroll for both chrome and firefox
+app.page = $("html, body");
+
 
 
 app.eraMappings = {
@@ -53,7 +56,12 @@ app.$movieQuery = function(genre, startDate, endDate) {
         })
     })
     .fail((error) => {
-        alert(error);
+        swal({
+            title: `There's something wrong with the data retreival on this website! Please hold tight!`,
+            icon: `error`,
+            button: `Exit`,
+            className: `swal`,
+        });
     });
 } 
     
@@ -74,54 +82,118 @@ app.$actorQuery = function(movie_id) {
 
     })
     .fail( (actorError) => {
-        alert(actorError);
+            swal({
+                title: `There's something wrong with the data retreival on this website! Please hold tight!`,
+                icon: `error`,
+                button: `Exit`,
+                className: `swal`,
+            });
     } )
 }
 
+//start button initilizer 
 
-//get user's selection for genre category
-$(`#genre`).on(`change`, function(){
+app.startClick = function () {
+    $(`.start`).on(`click`, function (){
+        $(`.firstSection`).removeClass(`notLoaded`);
+        $(`main`).removeClass(`notLoaded`);
+        app.page.animate({ scrollTop: $(`#firstSection`).offset().top }, 2000, function () {
+            // remove the listeners added for scroll above 
+            app.page.off(`scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove`);
+        });
+    })
+}
+
+//check selection for genre category to activate button
+app.genreChange = function () {
+    $(`#genre`).on(`change`, function(){
     app.genrePicked = $(this).val();
 });
+};
 
-//get user's selection for era
-$(`#era`).on(`change`, function(){
+//check selection for era category to activate button
+app.eraChange = function () {
+    $(`#era`).on(`change`, function(){
     app.eraPicked = $(this).val();
-    
 });
+};
+
+//check selection for star category to activate button 
+app.starChange = function () {
+    $(`#star`).on(`change`, function (){
+        app.starPicked = $(this).val();
+    })
+};
 
 //make event handler for submit buttons for genre and era
-$(`.firstQuestion`).on(`click`, function(event) {
+app.genreClick = function () {
+    $(`.firstQuestion`).on(`click`, function(event) {
     event.preventDefault();
     app.genreSelected = $(`#genre`).val();
+    if (app.genreSelected === `-1`) {
+        swal({
+            title: `Please select a protagonist!`,
+            icon: `error`,
+            button: `Try again!`,
+            className: `swal`,
+        })
+    } else {
     app.genreSelectedName = $(`#genre option:selected`).text().toLowerCase();
     $(`.taskName`).text(app.genreSelectedName);
-    console.log(app.genreSelectedName);
-})
+    $(`.secondSection`).removeClass(`notLoaded`);
+    app.page.animate({ scrollTop: $(`#secondSection`).offset().top }, 2000, function () {
+        // remove the listeners added for scroll above 
+        app.page.off(`scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove`);
+    });
+}
+});
+};
 
-$(`.secondQuestion`).on(`click`, function (event) {
+app.eraClick = function () {
+    $(`.secondQuestion`).on(`click`, function (event) {
     event.preventDefault();
     app.eraSelected = $(`#era`).val();
     //making the AJAX call with the genre the user selected, the era the user selected and connecting the era to the AJAX keys for start and end date of the era
+    if (app.eraSelected === `-1`) {
+        swal({
+            title: `Please select an era!`,
+            icon: `error`,
+            button: `Try again!`,
+            className: `swal`,
+        })} else {
     app.$movieQuery(app.genreSelected, app.eraMappings[app.eraSelected].start, app.eraMappings[app.eraSelected].end);
     app.eraSelectedName = $(`#era option:selected`).text().toLowerCase();
-    console.log(app.eraSelectedName);
     $(`.eraName`).text(app.eraSelectedName);
+    $(`.thirdSection`).removeClass(`notLoaded`);
+    app.page.animate({ scrollTop: $(`#thirdSection`).offset().top }, 2000, function () {
+        // remove the listeners added for scroll above 
+        app.page.off(`scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove`);
+        });
+    }
+});
+};
 
-})
 
-
-$(`.thirdQuestion`).on(`click`, function (event) {
+app.starClick = function () {
+    $(`.thirdQuestion`).on(`click`, function (event) {
     event.preventDefault();
     app.movieSelectedID = $(`#star`).val();
-    console.log(app.movieSelectedID);
+    if (app.movieSelectedID === `-1`) {
+        swal({
+            title: `Please select a star!`,
+            icon: `error`,
+            button: `Try again!`,
+            className: `swal`,
+        })} else {
     app.starSelectedName = $(`#star option:selected`).text();
-    console.log(app.starSelectedName);
+    $(`.results`).removeClass(`notLoaded`);
+    app.page.animate({ scrollTop: $(`#results`).offset().top }, 2000, function () {
+        // remove the listeners added for scroll above 
+        app.page.off(`scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove`);
+        });
+    }
     
     app.threeMovies.forEach( function(movie) {
-        
-        console.log(movie.id);
-        console.log(typeof app.movieSelectedID);
 
         if (parseInt(app.movieSelectedID) === movie.id) {
             $(`.fullScript`).html(`<p>In a world, where there is only one ${app.genreSelectedName} up to the task, this ${app.genreSelectedName}, living in ${app.eraSelectedName}, must save the day! In order to save the day the ${app.genreSelectedName} has to team up with ${app.starSelectedName}.</p>`);
@@ -129,11 +201,9 @@ $(`.thirdQuestion`).on(`click`, function (event) {
             $(`h2.movieName`).html(movie.original_title);
             $(`p.description`).html(movie.overview);
         }
-    })
-        
-
-    
-})
+    })   
+});
+};
 
 
 
@@ -174,6 +244,13 @@ app.resetButton = function (){
 
 //initilization function
 app.init = function () {
+    app.startClick();
+    app.genreChange();
+    app.genreClick();
+    app.eraChange();
+    app.eraClick();
+    app.starChange();
+    app.starClick();
     app.resetButton();
     $(`select`).prop(`-1`);
 } 

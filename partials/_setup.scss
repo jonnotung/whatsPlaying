@@ -45,6 +45,10 @@ section.secondSection
     padding: 10px 0;
 }
 
+section.firstSection {
+    margin-top: 30px;
+}
+
 section.thirdSection {
     padding: 10px 0;
 }
@@ -57,6 +61,10 @@ section.thirdSection {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.added {
+    padding-bottom: 150px;
 }
 
 //----------------------------------
@@ -100,7 +108,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .thirdSection .startContainer {
@@ -122,6 +129,9 @@ button {
     letter-spacing: 10px;
 }
  
+button:focus {
+    background: $accentCool;
+}
 
 .firstSection button,
 .secondSection button,
@@ -162,6 +172,28 @@ select {
     word-wrap: normal;
 }
 
+//--------------------------
+//-----dynamicall add sections--
+//---------------------------
+
+.notLoaded {
+    display: none;
+}
+
+//--------------------------
+//-----SWAL--
+//---------------------------
+.swal {
+    font-family: $pageText;
+    background: $accentCool;
+    color: $background;
+}
+
+.swal-button {
+    font-family: $pageText;
+    background: $accentPlush;
+}
+
 @media (min-width: 390px) {
     section.thirdSection
     {
@@ -185,10 +217,6 @@ select {
 
     .startContainer {
         height: auto;
-    }
-
-    .starP {
-        margin-bottom: 30px;
     }
 }
 
@@ -226,6 +254,11 @@ select {
     .thirdSection.outerWrapper {
         background: $background;
     }
+
+    .thirdSection.outerWrapper {
+        padding-bottom: 80px;
+    }
+
 }
 
 @media (min-width: 800px) {

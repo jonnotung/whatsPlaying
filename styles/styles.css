@@ -207,6 +207,10 @@ section.secondSection {
   padding: 10px 0;
 }
 
+section.firstSection {
+  margin-top: 30px;
+}
+
 section.thirdSection {
   padding: 10px 0;
 }
@@ -228,6 +232,10 @@ section.thirdSection {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.added {
+  padding-bottom: 150px;
 }
 
 h1, h2 {
@@ -268,7 +276,6 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
 }
 
 .thirdSection .startContainer {
@@ -290,6 +297,10 @@ button {
           box-shadow: 5px 5px #e9ceac;
   font-family: "Six Caps", sans-serif;
   letter-spacing: 10px;
+}
+
+button:focus {
+  background: #28587B;
 }
 
 .firstSection button,
@@ -329,6 +340,21 @@ select {
   word-wrap: normal;
 }
 
+.notLoaded {
+  display: none;
+}
+
+.swal {
+  font-family: "Oswald", sans-serif;
+  background: #28587B;
+  color: #404040;
+}
+
+.swal-button {
+  font-family: "Oswald", sans-serif;
+  background: #6c1c17;
+}
+
 @media (min-width: 390px) {
   section.thirdSection {
     height: 100vh;
@@ -351,9 +377,6 @@ select {
   }
   .startContainer {
     height: auto;
-  }
-  .starP {
-    margin-bottom: 30px;
   }
 }
 
@@ -387,6 +410,9 @@ select {
   .secondSection.outerWrapper,
   .thirdSection.outerWrapper {
     background: #404040;
+  }
+  .thirdSection.outerWrapper {
+    padding-bottom: 80px;
   }
 }
 
@@ -426,7 +452,8 @@ header {
   text-align: center;
   height: 90vh;
   border: 5px solid #404040;
-  margin: 25px 15px;
+  margin: 30px auto 0;
+  width: 90%;
 }
 
 .cameraIcon {
@@ -442,13 +469,6 @@ header::after {
   z-index: -1;
   top: 0;
   left: 0;
-}
-
-.h1container,
-.h1container2 {
-  display: inline-block;
-  margin: 15px auto 40px;
-  height: 90vh;
 }
 
 .intro {
@@ -502,32 +522,34 @@ header button {
     font-size: 4.5rem;
   }
   header button {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
-  header {
-    margin: 40px auto;
-    width: 90%;
+  .start {
+    margin: 2.8vh 0;
   }
 }
 
 @media (min-width: 800px) {
   h1.intro {
-    margin-top: 100px;
+    margin-top: 80px;
   }
   .start {
-    margin: 5vh 0;
+    margin: 2.5vh 0;
   }
   header p {
     margin-top: 12vh;
   }
 }
 
+@media (min-width: 960px) {
+  .start {
+    margin: 2vh;
+  }
+}
+
 @media (min-width: 1000px) {
   h1.intro {
     font-size: 7rem;
-  }
-  .start {
-    margin: 2.5vh;
   }
 }
 

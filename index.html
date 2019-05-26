@@ -33,8 +33,8 @@
             </div><!-- innerWrapper -->
         </div><!-- outerWrapper -->
     </header>
-    <main>
-        <section class="outerWrapper firstSection">
+    <main class="notLoaded">
+        <section class="outerWrapper firstSection notLoaded" id="firstSection">
             <div class="innerWrapper">
                 <h2>Meet the protagonist</h2>
                 <p>In a world, where there is only one...</p>
@@ -58,7 +58,7 @@
 
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper secondSection" role="region" aria-live="polite">
+        <section class="outerWrapper secondSection notLoaded" role="region" aria-live="polite" id="secondSection">
             <div class="innerWrapper">
                 <h2>Set the scene</h2>
                 <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in...</p>
@@ -78,7 +78,7 @@
                 </form>      
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper thirdSection" role="region" aria-live="polite">
+        <section class="outerWrapper thirdSection notLoaded added" role="region" aria-live="polite" id= "thirdSection">
             <div class="innerWrapper">
                 <h2>Pick the star</h2>
                 <p role="region" aria-live="polite" class="starP">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
@@ -94,28 +94,29 @@
                 </form>
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper results">
+        <section class="outerWrapper results notLoaded" id="results">
             <div class="innerWrapper">
                 <div class="dynamicResults">
                     <h2>Your completed Script</h2>
                     <div class="fullScript" role="region" aria-live="polite">
-                        <p>In a world, where there is only one loose canon cop up to the task, this loose canon cop, living in the
-                            neon 80's, must save the day! In order to save the day the loose canon cop has to team up with N!xau.
-                        </p>
+            
                     </div><!-- fullScript -->
                     <h2>Our movie recommendation</h2>
                     <div class="infoContainer">
-                        <div class="poster"><img src="https://image.tmdb.org/t/p/w342//yvD2BWOEM5N4S4f6Yj8IVVjoKQO.jpg"></div>
-                        <!-- poster -->
+
+                        <div class="poster">
+                            
+                        </div><!-- poster -->
                         <div class="movieText">
-                            <h2 class="movieName">The Gods Must Be Crazy</h2><!-- movieName -->
-                            <p class="description">Misery is brought to a small group of Sho in the Kalahari desert in the form of a cola
-                                bottle. In his quest to throw the evil object over the edge of the earth, Xixo encounters Western
-                                "civilization," a haphazard doctor and a tyranical despot.</p><!-- description -->
-                        </div> <!-- movieText -->
-                        
+
+                            <h2 class="movieName">
+                                
+                            </h2><!-- movieName -->
+                            <p class="description">
+                                
+                            </p><!-- description -->
+                        </div><!-- movieText -->
                     </div> <!-- infoContainer -->
-                    
                     <p class="playAgain">Not happy with your movie?</p>
                     <div class="startContainer">
                         <button class="reset">Play again!</button>
@@ -128,6 +129,8 @@
 
     <!-- jquery CDN link -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- link to our JS -->
     <script src="scripts/script.js"></script>
