@@ -234,7 +234,6 @@ app.randomMovies = function(movies, numMovies){
         selectedMovies.push(movies.results[rand]);
     };
     //return picked movie objects
-    console.log(selectedMovies);
     return selectedMovies;
 }
 

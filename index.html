@@ -6,19 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- google fonts link -->
     <link href="https://fonts.googleapis.com/css?family=Oswald%7CSix+Caps&display=swap" rel="stylesheet">
-    <!-- fontawesome link -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- link to our CSS styles -->
     <link rel="stylesheet" href="./styles/styles.css">
     <title>What's Playing?</title>
 </head>
 <body>
-    
     <header>
         <div class="outerWrapper">
             <div class="innerwrapper">
-
                 <div class="h1container">
                     <h1 class="intro">What's playing?</h1>
                     <p>Can't decide what movie to watch tonight? Well our script isn't complete, help us complete our script and we'll recommend a movie based on your ideas!</p>
@@ -27,8 +22,8 @@
             </div><!-- innerWrapper -->
         </div><!-- outerWrapper -->
     </header>
-    <main class="notLoaded">
-        <section class="outerWrapper firstSection notLoaded" id="firstSection">
+    <main class="notLoaded" role="region" aria-live="polite">
+        <section class="outerWrapper firstSection notLoaded" id="firstSection" role="region" aria-live="polite">
             <div class="innerWrapper">
                 <h2>Meet the protagonist</h2>
                 <p>In a world, where there is only one...</p>
@@ -42,14 +37,11 @@
                         <option value="53">Suspect</option><!-- thriller -->
                         <option value="878">Alien</option><!-- Sci Fi -->
                     </select>
-                
                     <p>Click to continue writing your story</p>
                     <div class="startContainer">
                         <button class="firstQuestion">Continue</button>
                     </div>
                 </form>
-                
-
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
         <section class="outerWrapper secondSection notLoaded" role="region" aria-live="polite" id="secondSection">
@@ -65,20 +57,20 @@
                         <option value="nineties">The grungy 90's</option><!-- 1990's -->
                         <option value="modern">A time not so long ago</option><!-- 2000-present -->
                     </select>
-                    <p class="eraContinueText">Click to continue writing your story</p>
+                    <p>Click to continue writing your story</p>
                     <div class="startContainer">
                         <button class="secondQuestion">Continue</button>
                     </div>
                 </form>      
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper thirdSection notLoaded added" role="region" aria-live="polite" id= "thirdSection">
+        <section class="outerWrapper thirdSection notLoaded" role="region" aria-live="polite" id= "thirdSection">
             <div class="innerWrapper">
                 <h2>Pick the star</h2>
-                <p role="region" aria-live="polite" class="starP">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
+                <p role="region" aria-live="polite">In a world, where there is only one <span class="taskName"></span> up to the task, this <span class="taskName"></span>, living in <span class="eraName"></span>, must save the day! In order to save the day the <span class="taskName"></span> has to team up with...</p>
                 <form action="#">
                     <label for="star" class="visuallyHidden">Please pick the star</label>
-                    <select name="star" id="star">
+                    <select name="star" id="star" role="region" aria-live="polite">
                         <option value="-1">Please pick the star</option>
                     </select>
                     <p>Click to get your movie!</p>
@@ -88,9 +80,11 @@
                 </form>
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-        <section class="outerWrapper results notLoaded" id="results">
+        <!-- dynamic content goes here -->
+        <section class="outerWrapper results notLoaded" id="results" role="region" aria-live="polite">
             <div class="innerWrapper">
                 <div class="dynamicResults">
+
                     <h2>Your completed Script</h2>
                     <div class="fullScript" role="region" aria-live="polite">
             
@@ -101,6 +95,7 @@
                         <div class="poster">
                             
                         </div><!-- poster -->
+
                         <div class="movieText">
 
                             <h2 class="movieName">
@@ -110,6 +105,7 @@
                                 
                             </p><!-- description -->
                         </div><!-- movieText -->
+
                     </div> <!-- infoContainer -->
                     <p class="playAgain">Not happy with your movie?</p>
                     <div class="startContainer">
@@ -118,14 +114,12 @@
                 </div> <!-- dynamicResults -->
             </div><!-- innerWrapper -->
         </section><!-- outerWrapper -->
-
     </main>
 
     <!-- jquery CDN link -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <!-- link to our JS -->
     <script src="scripts/script.js"></script>
 

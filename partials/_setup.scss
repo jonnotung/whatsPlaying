@@ -10,11 +10,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
-
-
 //----------------------------------
 //------Common wrapper styles-------
 //----------------------------------
+
 html {
     font-size: 125%;
 }
@@ -23,7 +22,6 @@ html {
     max-width: 1440px;
     margin: 0 auto;
     width: 90%;
-    
 }
 
 .innerWrapper {
@@ -81,8 +79,7 @@ h1, h2 {
 h2 {
     font-size: 2.75rem;
     letter-spacing: 7.5px;
-    text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush);
-    
+    text-shadow: (-1px -1px $accentPlush, -2px -2px $accentPlush, -3px -3px $accentPlush);   
 }
 
 p {
@@ -177,6 +174,7 @@ select {
 //-----dynamicall add sections--
 //---------------------------
 
+//hides sections until the user is ready for them
 .notLoaded {
     display: none;
 }
@@ -247,7 +245,7 @@ select {
     }
 
     main {
-        background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+        background:url(../assets/background.png);
     }
  
     .firstSection.outerWrapper,

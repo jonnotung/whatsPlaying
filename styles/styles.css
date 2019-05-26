@@ -405,7 +405,7 @@ select {
     font-size: 5rem;
   }
   main {
-    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+    background: url(../assets/background.png);
   }
   .firstSection.outerWrapper,
   .secondSection.outerWrapper,
@@ -449,16 +449,12 @@ select {
 }
 
 header {
-  background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+  background: url(../assets/background.png);
   text-align: center;
   height: 90vh;
   border: 5px solid #404040;
   margin: 30px auto 0;
   width: 90%;
-}
-
-.cameraIcon {
-  display: none;
 }
 
 header::after {
@@ -477,7 +473,6 @@ header::after {
   letter-spacing: 10px;
   line-height: 1;
   margin: 0;
-  position: relative;
   text-shadow: 2px 1px #550a00, 4px 2px #5a0f05, 6px 4px #64140f, 8px 5px #691914, 10px 6px #6e1e19, 12px 7px #731e1e, 14px 8px #781e23, 16px 9px black, 18px 10px black, 20px 11px black, 22px 12px black, 24px 13px black, 28px 14px rgba(0, 0, 0, 0.9), 30px 15px rgba(0, 0, 0, 0.7), 32px 16px rgba(0, 0, 0, 0.5), 34px 17px rgba(0, 0, 0, 0.3), 36px 18px rgba(0, 0, 0, 0.1), 40px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -566,7 +561,7 @@ header button {
 
 .results {
   padding: 10px 0;
-  background: url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+  background: url(../assets/background.png);
   width: 100%;
   padding: 25px 0;
 }

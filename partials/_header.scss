@@ -2,7 +2,7 @@
 //----text stylings copied from ThibaultJanBeyer on speckyboy.com---------
 //------------------------------------------------------------------------
 header {
-    background:  url(http://api.thumbr.it/whitenoise-361x370.png?background=15424fff&noise=166f9e&density=100&opacity=61);
+    background:url(../assets/background.png);
     text-align: center;
     height: 90vh;
     border: 5px solid $background;
@@ -10,10 +10,7 @@ header {
     width: 90%;
 }
 
-.cameraIcon {
-  display: none;
-}
-
+// creates complex background border
  header::after {
   content: "";
   height: 100vh; 
@@ -25,52 +22,12 @@ header {
   left: 0;
 }
 
-// header::before {
-// content: "";
-//   height: 5px;
-//   width: 95vw;
-//   background-color: $background;
-//   position: absolute;
-//   z-index: 1;
-//   top: 10px;
-//   left: 2%;
-// }
-
-// .h1container,
-//   .h1container2 {
-//   display: inline-block;
-//   margin: 15px auto 40px;
-//   height: 90vh;
-//   }
-
-//   .h1container::before {
-//   content: "";
-//   height: 100vh;
-//   width: 5px;
-//   background-color: $background;
-//   position: absolute;
-//   z-index: 1;
-//   top: 10px;
-//   left: 1%;
-// }
-
-// .h1container::after {
-//   content: "";
-//   height: 100vh;
-//   width: 5px;
-//   background-color: $background;
-//   position: absolute;
-//   z-index: 1;
-//   top: 10px;
-//   right: 1%;
-// }
-
+// creates three layered text shadow
 .intro {
   font-size: 1.8rem;
   letter-spacing: 10px;
   line-height: 1;
   margin: 0;
-  position: relative;
   text-shadow: 
     2px 1px rgb(85, 10, 0),
     4px 2px rgb(90, 15, 5),
@@ -110,11 +67,8 @@ header button {
     header p {
       margin-top: 40px;
     }
-
 }
     
-
-
 @media (min-width: 355px) {
   header button {
     font-size: 1.5rem;
@@ -144,6 +98,7 @@ header button {
   header button {
     font-size: 1.7rem;
   }
+
   .start {
     margin: 2.8vh 0;
   }
@@ -173,10 +128,6 @@ header button {
   h1.intro {
     font-size: 7rem;
   }
-
-  // .start {
-  //   margin: 2.5vh;
-  // }
 
 }
 
