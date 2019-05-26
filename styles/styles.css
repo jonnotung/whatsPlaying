@@ -297,6 +297,7 @@ button {
           box-shadow: 5px 5px #e9ceac;
   font-family: "Six Caps", sans-serif;
   letter-spacing: 10px;
+  outline: none;
 }
 
 button:focus {
@@ -513,7 +514,7 @@ header button {
     font-size: 3rem;
   }
   header p {
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
 }
 

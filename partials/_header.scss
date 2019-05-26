@@ -92,32 +92,6 @@ header {
     40px 20px rgba(0, 0, 0, 0.1);
 }
 
-// .h1container2::before {
-//   content: "";
-//   height: 30px;
-//   width: 5px;
-//   background-color: black;
-//   position: absolute;
-//   z-index: 1;
-//   bottom: 2%;
-//   left: 3%;
-//   transform: rotate(25deg);
-// }
-
-// .h1container2::after {
-//   content: "";
-//   height: 30px;
-//   width: 5px;
-//   background-color: black;
-//   position: absolute;
-//   z-index: 1;
-//   bottom: 2%;
-//   right: 3%;
-//   transform: rotate(335deg);
-// }
-
-
-
 header p {
     margin-top: 40px;
 }
@@ -158,7 +132,7 @@ header button {
   }
 
   header p {
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
 }
 

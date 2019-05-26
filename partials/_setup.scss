@@ -127,6 +127,7 @@ button {
     box-shadow: 5px 5px  $text; 
     font-family: $headerText;
     letter-spacing: 10px;
+    outline: none;
 }
  
 button:focus {
