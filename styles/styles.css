@@ -295,7 +295,6 @@ button {
   border: none;
   -webkit-box-shadow: 5px 5px #e9ceac;
           box-shadow: 5px 5px #e9ceac;
-  font-family: "Six Caps", sans-serif;
   letter-spacing: 10px;
   outline: none;
 }
@@ -343,6 +342,22 @@ select {
 
 .notLoaded {
   display: none;
+}
+
+.taskName,
+.eraName {
+  text-shadow: 2px 2px #28587B;
+  border-bottom: 2px solid #28587B;
+}
+
+.fullScript span {
+  text-shadow: 2px 2px #6c1c17;
+  -webkit-text-decoration: underline solid #6c1c17;
+          text-decoration: underline solid #6c1c17;
+}
+
+.completedScript {
+  height: 100vh;
 }
 
 .swal {

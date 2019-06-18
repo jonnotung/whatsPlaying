@@ -203,7 +203,7 @@ app.starClick = function () {
         //if current movie we're iterating over is the one the user selected
         if (parseInt(app.movieSelectedID) === movie.id) {
             //add completed mad lib and info for this movie to the web page
-            $(`.fullScript`).html(`<p>In a world, where there is only one ${app.genreSelectedName} up to the task, this ${app.genreSelectedName}, living in ${app.eraSelectedName}, must save the day! In order to save the day the ${app.genreSelectedName} has to team up with ${app.starSelectedName}.</p>`);
+            $(`.fullScript`).html(`<p>In a world, where there is only one <span>${app.genreSelectedName}</span> up to the task, this <span>${app.genreSelectedName}</span>, living in <span>${app.eraSelectedName}</span>, must save the day! In order to save the day the <span>${app.genreSelectedName}</span> has to team up with <span>${app.starSelectedName}</span>.</p>`);
             $(`.poster`).html(`<img src ='https://image.tmdb.org/t/p/w342/${movie.poster_path}'></img>`);
             $(`h2.movieName`).html(movie.original_title);
             $(`p.description`).html(movie.overview);
