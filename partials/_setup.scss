@@ -122,7 +122,6 @@ button {
     transition: 0.4s;
     border: none;
     box-shadow: 5px 5px  $text; 
-    font-family: $headerText;
     letter-spacing: 10px;
     outline: none;
 }
@@ -178,6 +177,27 @@ select {
 .notLoaded {
     display: none;
 }
+
+//--------------------------
+//-----styles mad libs--
+//---------------------------
+
+.taskName,
+.eraName {
+    text-shadow: 2px 2px $accentCool;
+    border-bottom: 2px solid $accentCool;
+}
+
+.fullScript span {
+    text-shadow: 2px 2px $accentPlush;
+    text-decoration: underline solid $accentPlush;
+
+}
+
+.completedScript {
+    height: 100vh;
+}
+
 
 //--------------------------
 //-----SWAL--
